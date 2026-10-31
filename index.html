@@ -1,231 +1,383 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Open-source AI and edge-computing projects by AgoeZero, built with Scheme, LambdaNative and TinyMaix.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open-source AI and embedded software projects by AgoeZero.">
   <title>AgoeZero | Open-Source Projects</title>
+
   <style>
-    :root {
-      --ink: #172033;
-      --muted: #5d687b;
-      --paper: #f6f8fc;
-      --card: #ffffff;
-      --green: #087443;
-      --blue: #1558c7;
-      --line: #e1e7f0;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.6;
+      padding: 0;
     }
-    a { color: inherit; }
-    .topbar {
-      background: #111b2a;
-      color: white;
-      padding: 16px max(5vw, 22px);
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid #263449;
+    }
+
+    .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
     }
-    .brand { font-size: 1.3rem; font-weight: 750; text-decoration: none; }
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
-    nav a { color: #e8edf6; text-decoration: none; font-size: .95rem; }
-    nav a:hover { text-decoration: underline; }
+
+    .brand {
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
     .hero {
-      color: white;
-      padding: 76px max(7vw, 24px);
-      background:
-        linear-gradient(105deg, rgba(9, 25, 32, .94), rgba(9, 49, 43, .78)),
-        radial-gradient(circle at 85% 20%, #4c8b3c, transparent 34%),
-        #153d35;
-    }
-    .hero-inner { max-width: 1100px; margin: auto; }
-    .eyebrow {
-      color: #b9e6cb;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 700;
-      font-size: .78rem;
-    }
-    h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.08; margin: 14px 0; }
-    .hero p { max-width: 720px; color: #e2eee9; font-size: 1.15rem; }
-    .section { max-width: 1100px; margin: auto; padding: 54px 22px; }
-    .section-heading { margin-bottom: 24px; }
-    .section-heading h2 { font-size: 2rem; margin: 0 0 6px; }
-    .section-heading p { color: var(--muted); margin: 0; }
-    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-    .project {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 28px rgba(20, 35, 60, .06);
-    }
-    .project-band { height: 8px; }
-    .tomato .project-band { background: var(--green); }
-    .skin .project-band { background: var(--blue); }
-    .project-content { padding: 28px; }
-    .project-tag {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 99px;
-      background: #edf4f0;
-      color: var(--green);
-      font-size: .78rem;
-      font-weight: 700;
-    }
-    .skin .project-tag { background: #edf2ff; color: var(--blue); }
-    .project h3 { font-size: 1.45rem; margin: 13px 0 8px; }
-    .project p { color: var(--muted); }
-    .project ul { padding-left: 20px; color: #354156; }
-    .project li { margin: 6px 0; }
-    .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 11px 17px;
-      border-radius: 9px;
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      background: var(--green);
-    }
-    .skin .button { background: var(--blue); }
-    .button:hover { filter: brightness(.92); }
-    .about {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .about p { color: var(--muted); margin-bottom: 0; }
-    .notice {
-      margin-top: 22px;
-      padding: 16px 18px;
-      border-left: 4px solid #d69a2d;
-      background: #fff8e9;
-      border-radius: 7px;
-      color: #60491f;
-      font-size: .92rem;
-    }
-    footer {
-      background: #111b2a;
-      color: #dce4ef;
+      padding: 90px 0 75px;
       text-align: center;
-      padding: 26px 20px;
-      font-size: .9rem;
     }
-    footer a { color: white; }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #f8fafc;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #94a3b8;
+      font-size: 17px;
+    }
+
+    .section {
+      padding: 55px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: 28px;
+      color: #f8fafc;
+    }
+
+    .section-heading p {
+      color: #94a3b8;
+      margin-top: 5px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
+    .project-card h3 {
+      font-size: 21px;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      color: #38bdf8;
+      background: #0f3045;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+      margin-bottom: 15px;
+    }
+
+    .project-card ul {
+      padding-left: 20px;
+      margin-bottom: 22px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 6px;
+      background: #0284c7;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .project-link:hover {
+      background: #0369a1;
+    }
+
+    .project-link.secondary {
+      background: transparent;
+      border: 1px solid #475569;
+      color: #cbd5e1;
+    }
+
+    .project-link.secondary:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    .about {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .about h2 {
+      margin-bottom: 15px;
+      color: #f8fafc;
+    }
+
+    .about p {
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      border-top: 1px solid #263449;
+      margin-top: 60px;
+      padding: 25px 0;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+
     @media (max-width: 760px) {
-      .projects { grid-template-columns: 1fr; }
-      .topbar { align-items: flex-start; }
-      nav { gap: 14px; }
-      .hero { padding-top: 58px; padding-bottom: 58px; }
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 0 50px;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .project-card {
+        padding: 22px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <a class="brand" href="#">AgoeZero Projects</a>
-    <nav aria-label="Main navigation">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="https://github.com/AgoeZero">GitHub</a>
-    </nav>
+
+  <header>
+    <div class="container nav">
+      <a href="/" class="brand">AgoeZero</a>
+
+      <nav class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/AgoeZero" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <div class="eyebrow">Open source · Machine learning · Edge computing</div>
-        <h1>Practical AI, built to run at the edge.</h1>
+      <div class="container">
+        <h1>Practical AI,<br>built to run <span>at the edge.</span></h1>
         <p>
-          Exploring lightweight machine-learning applications for agriculture
-          and healthcare, using Scheme, LambdaNative, TensorFlow and TinyMaix.
+          Exploring open-source software, embedded systems and practical
+          artificial intelligence through projects that solve real-world problems.
         </p>
       </div>
     </section>
 
     <section class="section" id="projects">
-      <div class="section-heading">
-        <h2>Featured projects</h2>
-        <p>Small, focused applications that bring image classification to mobile and edge devices.</p>
-      </div>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Featured Projects</h2>
+          <p>A selection of applications and experiments I have been working on.</p>
+        </div>
 
-      <div class="projects">
-        <article class="project tomato">
-          <div class="project-band"></div>
-          <div class="project-content">
-            <span class="project-tag">Agriculture · Image classification</span>
+        <div class="projects">
+
+          <!-- Tomato Disease Detector -->
+          <article class="project-card">
             <h3>Tomato Leaf Disease Detector</h3>
-            <p>
-              A lightweight CNN-based application for classifying tomato leaf
-              diseases from images, with an emphasis on offline mobile inference.
-            </p>
-            <ul>
-              <li>Custom CNN training pipeline</li>
-              <li>Model conversion and quantization</li>
-              <li>LambdaNative application with TinyMaix inference</li>
-            </ul>
-            <!-- Replace the URL below with your tomato classifier repository. -->
-            <a class="button" href="https://github.com/AgoeZero" target="_blank" rel="noopener">
-              View project on GitHub
-            </a>
-          </div>
-        </article>
+            <span class="tag">Agriculture · Image Classification</span>
 
-        <article class="project skin">
-          <div class="project-band"></div>
-          <div class="project-content">
-            <span class="project-tag">Healthcare research · Image classification</span>
-            <h3>Skin Disease Detector</h3>
             <p>
-              An experimental image-classification application trained on the
-              Skin Disease Dataset published on Kaggle.
+              An experimental mobile application that uses machine learning
+              to identify diseases affecting tomato leaves.
             </p>
+
             <ul>
-              <li>Eight dataset categories</li>
-              <li>Lightweight CNN model</li>
-              <li>Local inference using TinyMaix</li>
+              <li>Custom CNN model training pipeline</li>
+              <li>Model conversion and quantization</li>
+              <li>Offline inference using LambdaNative and TinyMaix</li>
+              <li>Designed for lightweight mobile deployment</li>
             </ul>
-            <a class="button" href="https://github.com/AgoeZero/lambdanative-skin-disease-detector"
-               target="_blank" rel="noopener">
-              View project on GitHub
-            </a>
-          </div>
-        </article>
+
+            <div class="project-links">
+              <a href="tomato-classifier/" class="project-link">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <!-- Skin Disease Detector -->
+          <article class="project-card">
+            <h3>Skin Disease Detector</h3>
+            <span class="tag">Healthcare Research · Image Classification</span>
+
+            <p>
+              An experimental image-classification application exploring
+              lightweight AI for identifying selected skin conditions.
+            </p>
+
+            <ul>
+              <li>Trained using a publicly available skin disease dataset</li>
+              <li>Eight image classification categories</li>
+              <li>TinyMaix-based lightweight inference</li>
+              <li>LambdaNative Android application</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="skin-disease-detector/" class="project-link">
+                View Project
+              </a>
+
+              <a
+                href="https://github.com/AgoeZero/lambdanative-skin-disease-detector"
+                class="project-link secondary"
+                target="_blank"
+                rel="noopener"
+              >
+                Source Code
+              </a>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
     <section class="section" id="about">
-      <div class="about">
-        <h2>About the work</h2>
-        <p>
-          These projects share a common workflow: train a model with Python,
-          TensorFlow and Keras, convert and quantize it for efficient inference,
-          then integrate it into a mobile application built with LambdaNative.
-          TinyMaix provides lightweight model inference on the target device.
-        </p>
-        <div class="notice">
-          <strong>Health disclaimer:</strong> The Skin Disease Detector is an
-          experimental project for educational and research purposes. It is not
-          a medical diagnostic tool and must not replace advice or diagnosis
-          from a qualified healthcare professional.
+      <div class="container">
+        <div class="about">
+          <h2>About My Work</h2>
+
+          <p>
+            I am interested in open-source software, embedded systems and
+            practical applications of artificial intelligence.
+          </p>
+
+          <p>
+            My development workflow often combines Python, TensorFlow and Keras
+            for model development, followed by model conversion and quantization
+            for deployment on resource-constrained devices.
+          </p>
+
+          <p>
+            I use LambdaNative and TinyMaix to explore how machine learning
+            models can run locally on mobile and embedded platforms, without
+            depending on cloud-based inference.
+          </p>
+
+          <p>
+            My goal is to build accessible, lightweight technology that can
+            address practical challenges, particularly in areas such as
+            agriculture and healthcare.
+          </p>
+
+          <p>
+            <strong>Disclaimer:</strong> The disease classification applications
+            are experimental projects and are not intended to replace
+            professional medical or agricultural diagnosis.
+          </p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Open Source · AI for Good · Built in Ghana</p>
-    <p><a href="https://github.com/AgoeZero">Explore more on GitHub</a></p>
+    <div class="container">
+      Open Source · AI for Good · Built in Ghana
+      <br>
+      © 2026 AgoeZero
+    </div>
   </footer>
+
 </body>
 </html>
