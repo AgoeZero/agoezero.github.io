@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Open-source AI and edge-computing projects by AgoeZero, built with Scheme, LambdaNative and TinyMaix.">
+  <title>AgoeZero | Open-Source Projects</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5d687b;
+      --paper: #f6f8fc;
+      --card: #ffffff;
+      --green: #087443;
+      --blue: #1558c7;
+      --line: #e1e7f0;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .topbar {
+      background: #111b2a;
+      color: white;
+      padding: 16px max(5vw, 22px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .brand { font-size: 1.3rem; font-weight: 750; text-decoration: none; }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { color: #e8edf6; text-decoration: none; font-size: .95rem; }
+    nav a:hover { text-decoration: underline; }
+    .hero {
+      color: white;
+      padding: 76px max(7vw, 24px);
+      background:
+        linear-gradient(105deg, rgba(9, 25, 32, .94), rgba(9, 49, 43, .78)),
+        radial-gradient(circle at 85% 20%, #4c8b3c, transparent 34%),
+        #153d35;
+    }
+    .hero-inner { max-width: 1100px; margin: auto; }
+    .eyebrow {
+      color: #b9e6cb;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 700;
+      font-size: .78rem;
+    }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.08; margin: 14px 0; }
+    .hero p { max-width: 720px; color: #e2eee9; font-size: 1.15rem; }
+    .section { max-width: 1100px; margin: auto; padding: 54px 22px; }
+    .section-heading { margin-bottom: 24px; }
+    .section-heading h2 { font-size: 2rem; margin: 0 0 6px; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .project {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(20, 35, 60, .06);
+    }
+    .project-band { height: 8px; }
+    .tomato .project-band { background: var(--green); }
+    .skin .project-band { background: var(--blue); }
+    .project-content { padding: 28px; }
+    .project-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: #edf4f0;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .skin .project-tag { background: #edf2ff; color: var(--blue); }
+    .project h3 { font-size: 1.45rem; margin: 13px 0 8px; }
+    .project p { color: var(--muted); }
+    .project ul { padding-left: 20px; color: #354156; }
+    .project li { margin: 6px 0; }
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 11px 17px;
+      border-radius: 9px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      background: var(--green);
+    }
+    .skin .button { background: var(--blue); }
+    .button:hover { filter: brightness(.92); }
+    .about {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .about p { color: var(--muted); margin-bottom: 0; }
+    .notice {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-left: 4px solid #d69a2d;
+      background: #fff8e9;
+      border-radius: 7px;
+      color: #60491f;
+      font-size: .92rem;
+    }
+    footer {
+      background: #111b2a;
+      color: #dce4ef;
+      text-align: center;
+      padding: 26px 20px;
+      font-size: .9rem;
+    }
+    footer a { color: white; }
+    @media (max-width: 760px) {
+      .projects { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      nav { gap: 14px; }
+      .hero { padding-top: 58px; padding-bottom: 58px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">AgoeZero Projects</a>
+    <nav aria-label="Main navigation">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/AgoeZero">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Open source · Machine learning · Edge computing</div>
+        <h1>Practical AI, built to run at the edge.</h1>
+        <p>
+          Exploring lightweight machine-learning applications for agriculture
+          and healthcare, using Scheme, LambdaNative, TensorFlow and TinyMaix.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <h2>Featured projects</h2>
+        <p>Small, focused applications that bring image classification to mobile and edge devices.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project tomato">
+          <div class="project-band"></div>
+          <div class="project-content">
+            <span class="project-tag">Agriculture · Image classification</span>
+            <h3>Tomato Leaf Disease Detector</h3>
+            <p>
+              A lightweight CNN-based application for classifying tomato leaf
+              diseases from images, with an emphasis on offline mobile inference.
+            </p>
+            <ul>
+              <li>Custom CNN training pipeline</li>
+              <li>Model conversion and quantization</li>
+              <li>LambdaNative application with TinyMaix inference</li>
+            </ul>
+            <!-- Replace the URL below with your tomato classifier repository. -->
+            <a class="button" href="https://github.com/AgoeZero" target="_blank" rel="noopener">
+              View project on GitHub
+            </a>
+          </div>
+        </article>
+
+        <article class="project skin">
+          <div class="project-band"></div>
+          <div class="project-content">
+            <span class="project-tag">Healthcare research · Image classification</span>
+            <h3>Skin Disease Detector</h3>
+            <p>
+              An experimental image-classification application trained on the
+              Skin Disease Dataset published on Kaggle.
+            </p>
+            <ul>
+              <li>Eight dataset categories</li>
+              <li>Lightweight CNN model</li>
+              <li>Local inference using TinyMaix</li>
+            </ul>
+            <a class="button" href="https://github.com/AgoeZero/lambdanative-skin-disease-detector"
+               target="_blank" rel="noopener">
+              View project on GitHub
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="about">
+        <h2>About the work</h2>
+        <p>
+          These projects share a common workflow: train a model with Python,
+          TensorFlow and Keras, convert and quantize it for efficient inference,
+          then integrate it into a mobile application built with LambdaNative.
+          TinyMaix provides lightweight model inference on the target device.
+        </p>
+        <div class="notice">
+          <strong>Health disclaimer:</strong> The Skin Disease Detector is an
+          experimental project for educational and research purposes. It is not
+          a medical diagnostic tool and must not replace advice or diagnosis
+          from a qualified healthcare professional.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Open Source · AI for Good · Built in Ghana</p>
+    <p><a href="https://github.com/AgoeZero">Explore more on GitHub</a></p>
+  </footer>
+</body>
+</html>
