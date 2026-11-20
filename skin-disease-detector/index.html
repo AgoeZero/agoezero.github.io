@@ -15,11 +15,24 @@ footer{text-align:center;padding:24px;background:#111b2a;color:#dce4ef;font-size
 <body><header class="nav"><a href="../">← AgoeZero Projects</a><a href="https://github.com/AgoeZero">GitHub profile</a></header>
 <main class="wrap"><div class="eyebrow">Healthcare research · Machine learning · Edge AI</div>
 <h1>Skin Disease Detector</h1>
-<p class="lead">An experimental image-classification application that uses a lightweight convolutional neural network to classify images into categories represented in its training dataset.</p>
-<section class="panel"><h2>About the project</h2><p>The application is built with Scheme and LambdaNative. Its model is trained using Python, TensorFlow and Keras, then converted for lightweight on-device inference with TinyMaix.</p></section>
-<section class="panel"><h2>Dataset</h2><p>Training data comes from the <a href="https://www.kaggle.com/datasets/subirbiswas19/skin-disease-dataset" target="_blank" rel="noopener">Skin Disease Dataset on Kaggle</a>.</p><p>The project uses eight dataset categories covering bacterial, fungal, parasitic and viral infections. Model predictions should be interpreted within the limitations of this dataset.</p></section>
+<p class="lead">Skin Disease Detector is an experimental image-classification application that uses a lightweight convolutional neural network to classify skin disease images into categories represented in its training dataset.</p>
+
+<section class="panel"><h2>About</h2><p>Built with Scheme and LambdaNative, the application uses a model trained with Python, TensorFlow and Keras, then converted for lightweight on-device inference using TinyMaix. The project explores the use of machine learning for image classification on resource-constrained devices.</p></section>
+
+<section class="panel"><h2>Features</h2><ul>
+<li>Classifies skin disease images using a lightweight convolutional neural network.</li>
+<li>Supports eight categories represented in its training dataset.</li>
+<li>Runs model inference locally on the device.</li>
+<li>Uses TinyMaix for lightweight embedded AI inference.</li>
+<li>Designed to explore machine learning applications on mobile and edge devices.</li>
+</ul></section>
+
+<section class="panel"><h2>Dataset</h2><p>Training data comes from the <a href="https://www.kaggle.com/datasets/subirbiswas19/skin-disease-dataset" target="_blank" rel="noopener">Skin Disease Dataset on Kaggle</a>.</p><p>The dataset contains eight categories covering bacterial, fungal, parasitic and viral infections. Classification results are limited to the data and categories used during training.</p></section>
+
 <section class="panel"><h2>Technology</h2><ul><li>Scheme and LambdaNative</li><li>C and TinyMaix</li><li>Python, TensorFlow and Keras</li><li>TensorFlow Lite model conversion and quantization</li></ul></section>
+
 <div class="note"><strong>Medical disclaimer:</strong> This application is intended for educational and experimental research purposes only. It is not a medical diagnostic tool and must not replace assessment, advice or treatment from a qualified healthcare professional.</div>
-<a class="button" href="https://github.com/AgoeZero/lambdanative-skin-disease-detector" target="_blank" rel="noopener">View source code on GitHub</a>
+
+<a class="button" href="https://github.com/AgoeZero/lambdanative-skin-disease-detector" target="_blank" rel="noopener">Source code on GitHub</a>
 <a class="button" href="../">Back to all projects</a>
 </main><footer>Open Source · AI for Good · Built in Ghana</footer></body></html>
